@@ -16,5 +16,9 @@
       "email": "orweinberger@gmail.com",
       "url": "http://joola.io"
     }
-  ]
+  ],
+  "dependencies": {
+    "blockchain-json-api": "*",
+    "mongodb": "*"
+  }
 }
