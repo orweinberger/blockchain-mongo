@@ -1,0 +1,20 @@
+{
+  "name": "blockchain-mongo",
+  "preferGlobal": false,
+  "version": "0.0.1",
+  "author": "Or Weinberger <orweinberger@gmail.com>",
+  "description": "Load blockchain info to a MongoDB",
+  "engine": "node >= 0.10.x",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orweinberger/blockchain-mongo.git"
+  },
+  "contributors": [
+    {
+      "name": "Or Weinberger",
+      "email": "orweinberger@gmail.com",
+      "url": "http://joola.io"
+    }
+  ]
+}
