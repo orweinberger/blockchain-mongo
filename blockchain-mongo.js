@@ -2,7 +2,7 @@ var blockchain = require('blockchain-json-api');
 var mongo = require('./lib/mongo');
 
 var options = {
-  speed: 2000, // Run every X ms
+  speed: 100, // Run every X ms
   tryResume: true // Settings this to true will fetch the last block index and resume the db insertion
 }
 bc = new blockchain();
