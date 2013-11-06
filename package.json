@@ -1,7 +1,7 @@
 {
   "name": "blockchain-mongo",
   "preferGlobal": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Or Weinberger <orweinberger@gmail.com>",
   "description": "Load blockchain info to a MongoDB",
   "engine": "node >= 0.10.x",
@@ -20,5 +20,16 @@
   "dependencies": {
     "blockchain-json-api": "*",
     "mongodb": "*"
-  }
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "keywords": [
+    "bitcoin",
+    "blockchain",
+    "mongodb"
+  ],
+  "readme": "A simple tool that uses the blockchain JSON API and loads the entire blockchain into a MongoDB collection"
 }
