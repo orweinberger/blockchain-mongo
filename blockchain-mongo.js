@@ -11,7 +11,8 @@ var blockindex = 1;
 
 if (options.tryResume) {
   mongo.fetch('blocks', {}, {"sort": {"block_index": -1}, "limit": 1}, function (err, res) {
-    blockindex = res[0].block_index + 1;
+    if (res && res[0] && res[0].block_index)
+      blockindex = res[0].block_index + 1;
   });
 }
 
