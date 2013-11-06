@@ -2,7 +2,7 @@ var blockchain = require('blockchain-json-api');
 var mongo = require('./lib/mongo');
 
 var options = {
-  speed: 100, // Run every X ms
+  speed: 1000, // Run every X ms
   tryResume: true // Settings this to true will fetch the last block index and resume the db insertion
 }
 bc = new blockchain();
@@ -17,10 +17,14 @@ if (options.tryResume) {
 }
 
 setInterval(function () {
-  bc.API('block-index', blockindex, function (res) {
-    mongo.insert('blocks', res, function () {
-      console.log('Inserted block index: ' + blockindex);
-      blockindex++;
-    });
+  bc.API('block-index', blockindex, function (res, err) {
+    if (err)
+      console.log('Error!', err);
+    else {
+      mongo.insert('blocks', res, function () {
+        console.log('Inserted block index: ' + blockindex);
+        blockindex++;
+      });
+    }
   });
 }, options.speed);
