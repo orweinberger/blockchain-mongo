@@ -11,3 +11,9 @@ npm start
 ```
 
 will start loading the blockchain data into a db named 'blockchain' on your locally hosted MongoDB instance.
+
+###IMPORTANT
+
+Please read about the API query limits to avoid getting your IP banned
+
+http://blockchain.info/api
