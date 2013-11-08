@@ -6,12 +6,12 @@ Since the process can be quite lengthy, there is also an option to resume loadin
 
 Feel free to contribute and use.
 
-##Install
+###Install
 ```bash
 npm install blockchain-mongo
 ```
 
-##Usage
+###Usage
 
 ```bash
 npm start
@@ -19,13 +19,13 @@ npm start
 
 This will start loading the blockchain data into a db named 'blockchain' on your locally hosted MongoDB instance.
 
-###Configuration
+####Configuration
 
 
-##Tests
+###Tests
 Feel free to contribute by adding tests :)
 
-##IMPORTANT
+###IMPORTANT
 
 Please read about the API query limits to avoid getting your IP banned
 
