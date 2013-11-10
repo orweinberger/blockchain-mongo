@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/orweinberger/blockchain-mongo.png?branch=master)](https://travis-ci.org/orweinberger/blockchain-mongo)
+
 #blockchain-mongo
 
 You can use blockchain-mongo to load the entire blockchain to a MongoDB collection, it uses the service provided by blockchain.info[1].
