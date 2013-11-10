@@ -1,7 +1,7 @@
 {
   "name": "blockchain-mongo",
   "preferGlobal": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Or Weinberger <orweinberger@gmail.com>",
   "description": "Load blockchain info to a MongoDB",
   "engine": "node >= 0.10.x",
@@ -18,7 +18,13 @@
       "name": "Or Weinberger",
       "email": "orweinberger@gmail.com",
       "url": "http://joola.io"
+    },
+    {
+      "name": "Itay Weinberger",
+      "email": "itay.weinberger@gmail.com",
+      "url": "http://joola.io"
     }
+
   ],
   "dependencies": {
     "blockchain-json-api": "*",
