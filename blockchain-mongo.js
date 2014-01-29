@@ -16,8 +16,14 @@ var process = function () {
     if (err)
     //output the error, but keep running without changing the last index;
       return console.log('Error!', err);
-
-    mongo.insert('blocks', res, function () {
+    res.tx.forEach(function(tx) {
+      tx.block_hash = res.hash;
+      mongo.insert('bc_tx', tx, function() {
+        console.log('Inserted tx: ' + tx.hash);
+      });
+    });
+    delete res['tx'];
+    mongo.insert('bc_block', res, function () {
       console.log('Inserted block index: ' + blockIndex);
       blockIndex++;
     });
