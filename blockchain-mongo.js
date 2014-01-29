@@ -13,9 +13,11 @@ var blockIndex = 1;
 
 var process = function () {
   bc.API('block-index', blockIndex, function (res, err) {
-    if (err)
-    //output the error, but keep running without changing the last index;
-      return console.log('Error!', err);
+    if (err) {
+      blockIndex++;
+      return console.log('Error!', err, blockIndex);
+    }
+      
     res.tx.forEach(function(tx) {
       tx.block_hash = res.hash;
       mongo.insert('bc_tx', tx, function() {
