@@ -33,7 +33,7 @@ var process = function () {
 };
 
 if (options.tryResume) {
-  mongo.fetch('blocks', {}, {"sort": {"block_index": -1}, "limit": 1}, function (err, res) {
+  mongo.fetch('bc_block', {}, {"sort": {"block_index": -1}, "limit": 1}, function (err, res) {
     if (err)
       throw err;
 
