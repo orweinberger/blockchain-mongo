@@ -5,7 +5,7 @@ blockchain = require('blockchain-json-api');
 
 var options = {
   speed: 1000, // Run every X ms
-  tryResume: false // Settings this to true will fetch the last block index and resume the db insertion
+  tryResume: true // Settings this to true will fetch the last block index and resume the db insertion
 };
 
 var bc = new blockchain();
@@ -25,7 +25,7 @@ joolaio.init({host: 'http://localhost:8080', APIToken: '12345'}, function (err) 
 
       });
 
-      joolaio.beacon.insert('bc_tx', res.tx, function (err,result) {
+      joolaio.beacon.insert('bc_tx', res.tx, function (err, result) {
         delete res['tx'];
         res.timestamp = new Date(res.time * 1000);
         res.block_size = res.size;
@@ -42,14 +42,17 @@ joolaio.init({host: 'http://localhost:8080', APIToken: '12345'}, function (err) 
   };
 
   if (options.tryResume) {
-    mongo.fetch('bc_block', {}, {"sort": {"block_index": -1}, "limit": 1}, function (err, res) {
+    joolaio.query.fetch({timeframe:'last_3_years', metrics: [
+      {key: 'block_index', name: 'block_index', dependsOn: 'block_index', aggregation: 'min'}
+    ]}, function (err, res) {
       if (err)
-        throw err;
-
-      if (res && res[0] && res[0].block_index)
-        blockIndex = res[0].block_index + 1;
-
-      process();
+        return new Error('Could not fetch the last inserted block_index');
+      else {
+        if (res.documents[0].values.block_index) {
+          blockIndex = res.documents[0].values.block_index;
+          process();
+        }
+      }
     });
   }
   else
